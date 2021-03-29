@@ -1,0 +1,18 @@
+.box {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    // padding: 12px;
+    display: flex;
+    flex-flow: wrap;
+    overflow: auto;
+    justify-content: space-around;
+
+    .echartsItem {
+        width: 400px;
+        height: 300px;
+        // position: absolute;
+        margin: 12px;
+        overflow-x: auto;
+    }
+}

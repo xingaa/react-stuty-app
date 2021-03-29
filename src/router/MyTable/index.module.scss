@@ -1,0 +1,19 @@
+.box {
+    overflow: auto;
+    height: 100%;
+    padding: 24px;
+
+    & [class="ant-table-tbody"] {
+        background-color: rgb(211, 214, 214);
+    }
+}
+
+.expandSpan {
+    display: inline-block;
+    width: 14px;
+    margin-right: 4px;
+}
+
+.expandIcon {
+    margin-right: 4px;
+}
