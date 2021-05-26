@@ -1,0 +1,32 @@
+.box {
+    overflow: auto;
+    height: 100%;
+    // padding: 24px;
+    display: flex;
+    justify-content: space-around;
+    flex-flow: wrap;
+    background-color: rgb(109, 52, 80);
+    color: #fff;
+    padding: 200px;
+
+    .dateItem {
+        display: flex;
+        padding: 12px;
+    }
+
+    .createIcon {
+        &::after {
+            content: "＞";
+            background: red;
+            color: #fff;
+            font-size: 16px;
+            line-height: 20px;
+            // font-weight: 800;
+            text-align: center;
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border-radius: 20px;
+        }
+    }
+}

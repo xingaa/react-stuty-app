@@ -1,0 +1,10 @@
+.box {
+    overflow: auto;
+    height: 100%;
+    padding: 24px;
+    display: flex;
+    justify-content: space-around;
+    flex-flow: wrap;
+    background-color: #fff;
+
+}

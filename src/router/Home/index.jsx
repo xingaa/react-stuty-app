@@ -43,6 +43,21 @@ class index extends Component {
                         图片懒加载
                     </div>
                 </div>
+                <div className={styles.home_Item}>
+                    <div className={styles.home_task} onClick={this.JumpTo.bind(this, "/mask")}>
+                        图形遮罩层
+                    </div>
+                </div>
+                <div className={styles.home_Item}>
+                    <div className={styles.home_task} onClick={this.JumpTo.bind(this, "/datefun")}>
+                        日期函数
+                    </div>
+                </div>
+                <div className={styles.home_Item}>
+                    <div className={styles.home_task} onClick={this.JumpTo.bind(this, "/epidemicMap")}>
+                        疫情地图
+                    </div>
+                </div>
             </div>
         );
     }

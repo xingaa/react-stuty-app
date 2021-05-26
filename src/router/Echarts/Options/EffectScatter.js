@@ -7,9 +7,18 @@ export default function Option() {
         yAxis: {
             scale: true
         },
+        // geo: {
+        //     nameMap: {
+        //         China: "中国",
+        //     },
+        //     map: "china",
+        //     zoom: 1.6,
+        //     roam: true,
+        // },
         series: [{
             name: "1990",
             type: "effectScatter",
+            // coordinateSystem: "geo",
             data: [
                 [28604, 77, 17096869, "Australia", 1990],
                 [31163, 77.4, 27662440, "Canada", 1990],

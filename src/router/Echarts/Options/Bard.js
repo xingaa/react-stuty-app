@@ -191,7 +191,9 @@ export default function Option() {
             data: ["已完成", "未完成"],
             right: 0,
         },
-        tooltip: {},
+        tooltip: {
+            triggerOn: "mousemove",
+        },
         // visualMap: {
         //     max: 20,
         //     inRange: {
@@ -214,16 +216,19 @@ export default function Option() {
             boxDepth: 80,
             viewControl: {
                 // projection: 'orthographic'
+                // autoRotate: true,
+                // rotateSensitivity: 0,
+                // zoomSensitivity: 0,
             },
-            light: {
-                main: {
-                    intensity: 1.2,
-                    shadow: true
-                },
-                ambient: {
-                    intensity: 0.3
-                }
-            }
+            // light: {
+            //     main: {
+            //         intensity: 1.2,
+            //         shadow: true
+            //     },
+            //     ambient: {
+            //         intensity: 0.3
+            //     }
+            // }
         },
         series: [{
                 name: "已完成",
@@ -233,17 +238,19 @@ export default function Option() {
                         value: [item[1], item[0] * 2, item[2]],
                     }
                 }),
-                shading: 'lambert',
-                bevelSmoothness: 2,
+                shading: 'lambert', //阴影
+                bevelSmoothness: 2, //锐角棱边
                 bevelSize: 0.2,
                 label: {
                     fontSize: 16,
                     borderWidth: 1
                 },
+                zlevel: 100,
                 itemStyle: {
                     color: "#409eff",
-                    opacity: 1,
+                    // opacity: 0.6,
                 },
+                // 高亮状态
                 emphasis: {
                     label: {
                         fontSize: 20,
@@ -252,7 +259,10 @@ export default function Option() {
                     itemStyle: {
                         color: '#900'
                     }
-                }
+                },
+                tooltip: {
+                    triggerOn: "mousemove",
+                },
             },
             {
                 name: "未完成",
@@ -264,7 +274,7 @@ export default function Option() {
                 }),
                 itemStyle: {
                     color: "#e43961",
-                    opacity: 1,
+                    // opacity: 0.6,
                 },
                 shading: 'lambert',
                 bevelSmoothness: 2,

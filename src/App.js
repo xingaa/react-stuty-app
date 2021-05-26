@@ -10,6 +10,9 @@ import Fireworks from "./router/Fireworks"
 import ScrollBar from "./router/ScrollBar"
 import Echarts from "./router/Echarts"
 import LazyLoad from "./router/LazyLoad"
+import Mask from "./router/Mask"
+import Datefun from "./router/Datefun"
+import EpidemicMap from "./router/EpidemicMap"
 import Initpage from "./Initpage.js"
 
 function App() {
@@ -25,6 +28,9 @@ function App() {
           <Route path="/scrollBar" component={ScrollBar} exact></Route>
           <Route path="/echarts" component={Echarts} exact></Route>
           <Route path="/lazyLoad" component={LazyLoad} exact></Route>
+          <Route path="/mask" component={Mask} exact></Route>
+          <Route path="/datefun" component={Datefun} exact></Route>
+          <Route path="/epidemicMap" component={EpidemicMap} exact></Route>
           <Route path="/" component={Initpage} exact></Route>
         </Switch>
       </div>

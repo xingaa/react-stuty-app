@@ -11,18 +11,22 @@ const columns = [
         title: 'Name',
         dataIndex: 'name',
         key: 'name',
+        width: 600,
+        fixed: "left"
     },
     {
         title: 'Age',
         dataIndex: 'age',
         key: 'age',
-        width: '12%',
+        // width: '12',
+        width: 600
     },
     {
         title: 'Address',
         dataIndex: 'address',
-        width: '30%',
+        // width: '30%',
         key: 'address',
+        width: 600
     },
 ];
 
@@ -166,6 +170,7 @@ class index extends Component {
                     bordered
                     onRow={this.rowSetting}
                     scroll={{ x: "max-content", y: "calc(100vh - 320px)" }}
+                    className={styles.myTable}
                 />
             </div>
         );

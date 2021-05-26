@@ -1,0 +1,50 @@
+.box {
+    overflow: auto;
+    height: 100%;
+    // padding: 24px;
+    display: flex;
+    justify-content: space-around;
+    flex-flow: wrap;
+    background-color: rgb(124, 7, 66);
+
+    .mask {
+        position: fixed;
+        left: 350px;
+        top: 150px;
+        width: 200px;
+        height: 200px;
+        border-radius: 200px;
+        box-shadow: 0px 0px 56px 5px #000 inset;
+        z-index: 100;
+        pointer-events: none;
+    }
+
+    .maskouter {
+        position: fixed;
+        left: 350px;
+        top: 150px;
+        width: 200px;
+        height: 200px;
+        border-radius: 200px;
+        box-shadow: 0px 0px 3px 12125px #000;
+        z-index: 100;
+        pointer-events: none;
+    }
+
+    .clickbox {
+        position: relative;
+        z-index: 50;
+        margin: 200px 0;
+        margin-left: -700px;
+    }
+
+    .click {
+        // width: 100px;
+        padding: 0 24px;
+        margin: 12px;
+        height: 36px;
+        border: 1px solid #fff;
+        line-height: 36px;
+        color: azure;
+    }
+}
