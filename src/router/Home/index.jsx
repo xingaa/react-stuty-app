@@ -58,6 +58,11 @@ class index extends Component {
                         疫情地图
                     </div>
                 </div>
+                <div className={styles.home_Item}>
+                    <div className={styles.home_task} onClick={this.JumpTo.bind(this, "/canvasTest")}>
+                        Canvas
+                    </div>
+                </div>
             </div>
         );
     }

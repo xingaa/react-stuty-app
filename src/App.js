@@ -13,6 +13,7 @@ import LazyLoad from "./router/LazyLoad"
 import Mask from "./router/Mask"
 import Datefun from "./router/Datefun"
 import EpidemicMap from "./router/EpidemicMap"
+import CanvasTest from "./router/CanvasTest"
 import Initpage from "./Initpage.js"
 
 function App() {
@@ -31,6 +32,7 @@ function App() {
           <Route path="/mask" component={Mask} exact></Route>
           <Route path="/datefun" component={Datefun} exact></Route>
           <Route path="/epidemicMap" component={EpidemicMap} exact></Route>
+          <Route path="/canvasTest" component={CanvasTest} exact></Route>
           <Route path="/" component={Initpage} exact></Route>
         </Switch>
       </div>

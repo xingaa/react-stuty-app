@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Form, Input, Button, Checkbox, message, DatePicker } from 'antd';
 import Datecom from "../Datefun/index"
 import styles from "./index.module.scss";
-const { RangePicker } = DatePicker;
+const { RangePicker, MonthPicker } = DatePicker;
 
 class index extends Component {
 
@@ -22,73 +22,80 @@ class index extends Component {
             },
         };
         return (
-            <Form
-                // {...layout}
-                name="basic"
-                initialValues={{
-                    remember: true,
-                    username: "xiaohuahua",
-                }}
-                className={styles.myform}
-                onFinish={this.onFinish}
-                onFinishFailed={this.onFinishFailed}
-            >
-                <Form.Item
-                    className="formItem"
-                    label="Username"
-                    name="username"
-                    rules={[
-                        {
-                            required: true,
-                            message: 'Please input your username!',
-                        },
-                    ]}
-                // initialValue="dhx"
+            <div>
+                <MonthPicker
+                    size={"default"}
+                // picker="month"
+                />
+                <Form
+                    // {...layout}
+                    name="basic"
+                    initialValues={{
+                        remember: true,
+                        username: "xiaohuahua",
+                    }}
+                    className={styles.myform}
+                    onFinish={this.onFinish}
+                    onFinishFailed={this.onFinishFailed}
                 >
-                    <Input />
-                </Form.Item>
+                    <Form.Item
+                        className="formItem"
+                        label="Username"
+                        name="username"
+                        rules={[
+                            {
+                                required: true,
+                                message: 'Please input your username!',
+                            },
+                        ]}
+                    // initialValue="dhx"
+                    >
+                        <Input />
+                    </Form.Item>
 
-                <Form.Item
-                    className="formItem"
-                    label="Password"
-                    name="password"
-                    rules={[
-                        {
-                            required: true,
-                            message: 'Please input your password!',
-                        },
-                    ]}
-                >
-                    <Input.Password />
-                </Form.Item>
-                <Form.Item
-                    className="formItem"
-                    label="monthpiker"
-                    name="monthpiker"
-                    rules={[
-                        {
-                            required: true,
-                            message: 'Please input your monthpiker!',
-                        },
-                    ]}
-                >
-                    <DatePicker size={"default"} picker="month" />
-                </Form.Item>
-                <Form.Item name="remember" className="formItem" valuePropName="checked">
-                    <Checkbox>Remember me</Checkbox>
-                </Form.Item>
+                    <Form.Item
+                        className="formItem"
+                        label="Password"
+                        name="password"
+                        rules={[
+                            {
+                                required: true,
+                                message: 'Please input your password!',
+                            },
+                        ]}
+                    >
+                        <Input.Password />
+                    </Form.Item>
+                    <Form.Item
+                        className="formItem"
+                        label="monthpiker"
+                        name="monthpiker"
+                        rules={[
+                            {
+                                required: true,
+                                message: 'Please input your monthpiker!',
+                            },
+                        ]}
+                    >
+                        <DatePicker size={"default"} picker="month" />
+                    </Form.Item>
+                    <Form.Item name="remember" className="formItem" valuePropName="checked">
+                        <Checkbox>Remember me</Checkbox>
+                    </Form.Item>
 
-                <Form.Item className="formItem">
-                    <Button type="primary" htmlType="submit" onClick={this.submit}>
-                        Submit
+                    <Form.Item className="formItem">
+                        <Button type="primary" htmlType="submit" onClick={this.submit}>
+                            Submit
                     </Button>
-                </Form.Item>
-                <Form.Item className="formItem">
-                    <Button onClick={this.postExport.bind(this, { wo: "jenurs" }, "http://wxs.ngrok.xiaomiqiu.cn/kpi/chnOperate/realTime/daily/list/export")}>
-                        postExport
+                    </Form.Item>
+                    <Form.Item className="formItem">
+                        <Button onClick={this.postExport.bind(this, { wo: "jenurs" }, "http://wxs.ngrok.xiaomiqiu.cn/kpi/chnOperate/realTime/daily/list/export")}>
+                            postExport
                     </Button>
-                </Form.Item>
-            </Form>
+                    </Form.Item>
+                </Form>
+                <canvas id="myCanvas"></canvas>
+            </div>
         );
     }
     onFinish = (values) => {
@@ -134,7 +141,12 @@ class index extends Component {
         // 版权声明：本文为CSDN博主「@曾经@」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
         // 原文链接：https://blog.csdn.net/weixin_41628411/article/details/105815034
     }
-
+    componentDidMount() {
+        var c = document.getElementById("myCanvas");
+        var ctx = c.getContext("2d");
+        ctx.fillStyle = "#FF0000";
+        ctx.fillRect(0, 0, 150, 75);
+    }
 }
 
 export default index;

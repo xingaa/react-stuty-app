@@ -13,8 +13,12 @@ export default function Option() {
         yAxis: [{
             type: 'value',
             name: '温度',
-            min: 0,
-            max: 10,
+            min: (value) => {
+                return value.min
+            },
+            max: (value) => {
+                return value.max
+            },
             axisLabel: {
                 formatter: '{value}℃'
             },
@@ -45,15 +49,15 @@ export default function Option() {
             name: '销量',
             type: 'line',
             stack: "总量",
-            data: [1, 2, 3, 4, 5, 6]
+            data: [1.01, 2.02, 3.03, 4.04, 5.05, 6.06]
         }, {
             name: '金额',
             type: 'bar',
             yAxisIndex: 1,
             data: [{
-                value: 60,
+                value: 60.33,
                 name: "衬衫"
-            }, 20, 36, 10, 10, 20],
+            }, 20.33, 36.33, 10.33, 10.33, 20.33],
             label: {
                 show: true,
                 position: [-10, -30],
