@@ -8,7 +8,7 @@
 .home_Item {
     position: relative;
     margin: 12px 24px;
-    padding: 4px;
+    padding: 2px;
     width: 180px;
     height: 60px;
     border-radius: 8px;
@@ -22,11 +22,18 @@
     border-radius: 8px;
     font-size: 20px;
     font-weight: 600;
-    background-color: rgb(252, 157, 154);
+    background-color: #6693ba;
 
     cursor: pointer;
     position: relative;
     z-index: 10;
+    color: #fff;
+
+    &:hover {
+        background-color: #8ec1ee;
+        color: #555;
+
+    }
 }
 
 .home_Item::before {
@@ -36,7 +43,7 @@
     left: 0px;
     height: 100%;
     width: 100%;
-    background-color: rgb(55, 4, 68);
+    background-color: #7f6e57;
     transform: rotate(-90deg);
     transform-origin: 0% 100%;
     transition: all 0.4s;
@@ -49,7 +56,7 @@
     left: 0px;
     height: 100%;
     width: 100%;
-    background-color: rgb(55, 4, 68);
+    background-color: #7f6e57;
     transform: rotate(-90deg);
     transform-origin: 100% 0%;
     transition: all 0.4s;

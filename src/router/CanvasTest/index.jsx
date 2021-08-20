@@ -1,28 +1,22 @@
 import React, { Component } from 'react';
-import { Table, Switch, Space, Icon, Card } from 'antd';
-import {
-    CaretRightOutlined,
-    CaretDownOutlined
-} from '@ant-design/icons';
 import styles from "./index.module.scss";
 
-let newObj = null
-let deepObj = null
-let strOld = null
-let strNew = null
-let strDeep = null
 class index extends Component {
     state = {
     }
-
     render() {
         return (
             <div className={styles.box}>
                 <canvas id="myConvas" width="800" height="600" className={styles.mycanvas}></canvas>
+                <div className={styles.scapebox + " bottom"}>
+                    <div className={styles.scape}>一等奖</div>
+                    <canvas id="myscapeCanvas" className={styles.scapeCanvas} width="176" height="80"></canvas>
+
+                </div>
             </div>
         );
     }
-    componentDidMount() {
+    handleClock = () => {
         const canv = document.getElementById("myConvas")
         const cxt = canv.getContext("2d")
         console.log(cxt);
@@ -32,6 +26,7 @@ class index extends Component {
             // 将坐标移动到画布中央
             // 保存尺子
             cxt.save()
+            // 改变原点至中心点
             cxt.translate(400, 300)
             // 保存尺子
             cxt.save()
@@ -76,7 +71,7 @@ class index extends Component {
             const hour = time.getHours() > 12 ? (time.getHours() - 12) : time.getHours()
             const min = time.getMinutes()
             const sec = time.getSeconds()
-            console.log(hour, min, sec);
+            // console.log(hour, min, sec);
             // 绘制秒针
             cxt.beginPath()
             cxt.rotate(Math.PI / 30 * sec)
@@ -129,8 +124,47 @@ class index extends Component {
             renderTimer()
         }, 1000)
     }
+    handleScape = () => {
+        const canv = document.getElementById("myscapeCanvas")
+        const scape = document.querySelector(".bottom")
+        const ctx = canv.getContext("2d")
+        ctx.fillStyle = "#999"
+        ctx.fillRect(0, 0, 176, 80)
+        ctx.font = "18px 微软雅黑"
+        ctx.fillStyle = "#fff"
+        ctx.fillText("刮刮乐", 54, 50)
+        console.log(ctx);
+        // console.log(scape.offsetLeft);
 
-
+        // 鼠标移动，清除内容
+        let isDraw = false
+        canv.onmousedown = function (e) {
+            isDraw = true
+        }
+        canv.onmouseup = function (e) {
+            isDraw = false
+        }
+        canv.onmouseout = function (e) {
+            isDraw = false
+        }
+        canv.onmousemove = function (e) {
+            if (isDraw) {
+                ctx.beginPath()
+                const x = e.offsetX
+                const y = e.offsetY
+                ctx.fillStyle = "#909"
+                ctx.globalCompositeOperation = "destination-out"
+                ctx.arc(x, y, 10, 0, 2 * Math.PI)
+                ctx.fill()
+                ctx.closePath()
+                // console.log(e);
+            }
+        }
+    }
+    componentDidMount() {
+        this.handleClock()
+        this.handleScape()
+    }
 }
 
 export default index;

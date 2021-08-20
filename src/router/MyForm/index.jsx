@@ -47,6 +47,9 @@ class index extends Component {
                                 required: true,
                                 message: 'Please input your username!',
                             },
+                            {
+
+                            },
                         ]}
                     // initialValue="dhx"
                     >
@@ -86,12 +89,12 @@ class index extends Component {
                     <Form.Item className="formItem">
                         <Button type="primary" htmlType="submit" onClick={this.submit}>
                             Submit
-                    </Button>
+                        </Button>
                     </Form.Item>
                     <Form.Item className="formItem">
                         <Button onClick={this.postExport.bind(this, { wo: "jenurs" }, "http://wxs.ngrok.xiaomiqiu.cn/kpi/chnOperate/realTime/daily/list/export")}>
                             postExport
-                    </Button>
+                        </Button>
                     </Form.Item>
                 </Form>
                 <canvas id="myCanvas"></canvas>

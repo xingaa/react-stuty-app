@@ -35,9 +35,46 @@ class index extends Component {
         console.log(rmvF)
         rmvF.removeChild(rmv)
     }
-    componentDidMount() {
-
+    // 删除字符串最后一个单词
+    delLastWord = (str = "cardItem swiper-slide zhongxinCard boxShayouzhengCard swiper-slide-prev boxShayouzhengCard") => {
+        var arr = str.split(" ")
+        arr.pop()
+        var str2 = arr.join(" ")
+        console.log("str", str);
+        console.log("str2", str2);
     }
+    // 累加功能函数
+    sum = function () {
+        console.log("arguments", arguments);
+        if (arguments.length === 0) {
+            alert("请先传参")
+            return
+        }
+        let sum = 0
+        for (var i = 0; i < arguments.length; i++) {
+            let item = arguments[i]
+            if (isNaN(arguments[i]) || arguments[i] === null) {
+                item = 0
+            } else {
+                item = arguments[i] - 0
+            }
+            sum += item
+        }
+        return sum
+    }
+
+    componentDidMount() {
+        this.delLastWord()
+        console.log(this.sum(2, null, 3));
+        const datalist = []
+        console.log(datalist[0]);
+        const arr = [1, 2]
+        if (JSON.stringify(arr) !== "[]") {
+            console.log("该arr不是空数组");
+        }
+    }
+
+
 }
 
 export default index;

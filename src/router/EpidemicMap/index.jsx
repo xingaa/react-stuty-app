@@ -15,7 +15,7 @@ class index extends Component {
 
         return (
             <div className={styles.box}>
-                <iframe src="https://www.lovestu.com/api/project/cnmapyinqing/obj.php?maph=800" height="1000" frameborder="no" border="0" width="100%"> </iframe>
+                <iframe src="https://www.lovestu.com/api/project/cnmapyinqing/obj.php?maph=800" height="1000" frameBorder="no" border="0" width="100%"> </iframe>
             </div>
         );
     }

@@ -4,6 +4,7 @@ import {
     CaretRightOutlined,
     CaretDownOutlined
 } from '@ant-design/icons';
+import { encode, decode, encodeURI } from 'js-base64';
 import styles from "./index.module.scss";
 
 let newObj = null
@@ -21,11 +22,12 @@ class index extends Component {
         extendObj: {},
         change: 1,
         numOfThousand: 123456789.123,
+        base64Str: "hello world"
     }
 
     render() {
 
-        const { oldObj, extendObj, numOfThousand } = this.state
+        const { oldObj, extendObj, numOfThousand, base64Str, base64word } = this.state
         strOld = JSON.stringify(oldObj)
         let strOld2 = JSON.stringify(extendObj)
         if (this.state.change === 1) {
@@ -75,12 +77,18 @@ class index extends Component {
                         style={{ width: 300 }}>
                         {numOfThousand}
                     </Card>
+                    <Card
+                        title={base64Str}
+                        extra={<span style={{ cursor: "pointer", color: "#23a9f2" }} onClick={this.handleclick.bind(this, "base64")}>base64</span>}
+                        style={{ width: 300 }}>
+                        {base64word}
+                    </Card>
                 </div>
             </div>
         );
     }
     handleclick = (who) => {
-        let { change, oldObj, numOfThousand } = this.state
+        let { change, oldObj, numOfThousand, base64Str } = this.state
         if (who === "newObj") {
             newObj.name = "李四" + change
             this.setState({
@@ -110,6 +118,9 @@ class index extends Component {
             this.setState({
                 numOfThousand: newNum,
             })
+        }
+        if (who === "base64") {
+            this.setState({ base64word: encodeURI(base64Str) })
         }
     }
     // 去重
@@ -152,11 +163,65 @@ class index extends Component {
             return ""
         }
     }
+
+    // 数据合并
+    mergeId = (arr) => {
+        let diffTypes = []
+        const newArr = []
+        arr.map((obj, index) => {
+            if (diffTypes.indexOf(obj.res_type) < 0) {
+                diffTypes.push(obj.res_type)
+                let ids = []
+                arr.map((o, i) => {
+                    if (o.res_type === obj.res_type) ids.push(o.res_id)
+                })
+                newArr.push({ res_type: obj.res_type, res_id: ids.join(",") })
+            }
+        })
+        return newArr
+    }
+
     componentDidMount() {
         const { oldObj } = this.state
         const url = `https://restapi.amap.com/v3/direction/driving`;
         console.log(url + this.paramsTransGET(oldObj));
         this.seTArr()
+
+
+        // 获取小数点后数字长度
+        function getLength(num) {
+            if (typeof (num) === "number") {
+                const strNum = num + ""
+                const arrNum = strNum.split(".")
+                if (arrNum.length === 2) {
+                    return arrNum[1].length
+                } else {
+                    return 0
+                }
+            } else {
+                return 0
+            }
+        }
+
+        const a = 123.123450000
+        const b = a + ""
+        console.log("a", a);//123.12345
+        console.log("b", b);//"123.12345"
+        console.log(getLength(a));//5
+
+        let arr = [
+            { res_id: 12345812, res_type: 5 },
+            { res_id: 123812, res_type: 8 },
+            { res_id: 12812, res_type: 5 },
+            { res_id: 123452, res_type: 6 },
+            { res_id: 12345812, res_type: 8 },
+            { res_id: 125, res_type: 5 },
+            { res_id: 369, res_type: 5 },
+            { res_id: 9, res_type: 9 },
+            { res_id: 169, res_type: 5 },
+            { res_id: 147, res_type: 15 },
+        ]
+        console.log(this.mergeId(arr));
     }
 
 

@@ -1,34 +1,30 @@
 import React, { Component } from 'react';
-import { Table, Switch, Space, Icon } from 'antd';
+import { Table, Switch, Space, Icon, Button } from 'antd';
+import ExportJsonExcel from 'js-export-excel';
 import {
     CaretRightOutlined,
     CaretDownOutlined
 } from '@ant-design/icons';
 import styles from "./index.module.scss";
 import scroll from "../ScrollBar/index.module.scss";
-const columns = [
-    {
-        title: 'Name',
-        dataIndex: 'name',
-        key: 'name',
-        width: 600,
-        fixed: "left"
-    },
-    {
-        title: 'Age',
-        dataIndex: 'age',
-        key: 'age',
-        // width: '12',
-        width: 600
-    },
-    {
-        title: 'Address',
-        dataIndex: 'address',
-        // width: '30%',
-        key: 'address',
-        width: 600
-    },
-];
+// ES6
+import { Resizable } from 'react-resizable';
+// const { Resizable } = require('react-resizable');
+import 'react-resizable/css/styles.css';
+const ResizeableTitle = props => {
+    const { onResize, width, ...restProps } = props
+    if (!width) {
+        return <th {...restProps}></th>
+    }
+    // console.log("生成了resizeble");
+    return (
+        <Resizable width={width} height={0} onResize={onResize}>
+            <th {...restProps} />
+        </Resizable>
+    )
+}
+
+
 
 const data = [
     {
@@ -156,15 +152,78 @@ const data = [
 ];
 
 class index extends Component {
+    state = {
+        width: 200,
+        height: 60,
+        columns: [
+            {
+                title: 'Name',
+                dataIndex: 'name',
+                key: 'name',
+                width: 600,
+                fixed: "left",
+                // render: text => <span className={styles.tabletd} title={text}>{text}</span>
+            },
+            {
+                title: 'Age',
+                dataIndex: 'age',
+                key: 'age',
+                // width: '12',
+                width: 600,
+                // render: text => <span className={styles.tabletd} title={text}>{text}</span>
+            },
+            {
+                title: 'Address',
+                dataIndex: 'address',
+                // width: '30%',
+                key: 'address',
+                width: 600,
+                // render: text => <span className={styles.tabletd} title={text}>{text}</span>
+            },
+        ],
+    }
+    components = {
+        header: {
+            cell: ResizeableTitle,
+        }
+    }
+
+    handleResize = index => (e, { size }) => {
+        this.setState(({ columns }) => {
+            const nextColumns = [...columns];
+            nextColumns[index] = {
+                ...nextColumns[index],
+                width: size.width,
+            }
+            return { columns: nextColumns };
+        })
+    }
+    // On top layout
+    onResize = (event, { element, size, handle }) => {
+        this.setState({ width: size.width, height: size.height });
+    };
 
     render() {
+        const columns = this.state.columns.map((col, index) => ({
+            ...col,
+            onHeaderCell: column => ({
+                width: column.width,
+                onResize: this.handleResize(index)
+            })
+        }))
+        const { width } = this.state
         return (
-            <div className={styles.box + " " + scroll.barStyle}
-
-            >
+            <div className={styles.box + " " + scroll.barStyle}>
+                <Resizable height={this.state.height} width={this.state.width} onResize={this.onResize}>
+                    <div className={styles.scaling} style={{ width: this.state.width + 'px', height: this.state.height + 'px', lineHeight: this.state.height + 'px' }}>
+                        可伸缩块
+                    </div>
+                </Resizable>
+                <Button onClick={this.toExcel}>导出Excel</Button>
                 <Table
                     dataSource={data}
                     columns={columns}
+                    components={this.components}
                     expandIcon={this.expandRow}
                     expandRowByClick
                     bordered
@@ -175,6 +234,25 @@ class index extends Component {
             </div>
         );
     }
+    toExcel = (params) => {
+        const data = [{
+            "名称": "张三",
+            "年级": 18,
+            "sex": "male",
+        }]
+        const options = {
+            fileName: "导出数据",
+            datas: [{
+                sheetData: data,
+                sheetName: 'sheet',
+                sheetFilter: ['名称', '年级', 'sex'],
+                sheetHeader: ['名称', '年级', 'sex'],
+            }]
+        }
+        var toExl = new ExportJsonExcel(options)
+        toExl.saveExcel()
+    }
+
     expandRow = (props) => {
         if (props.expandable) {
             if (props.expanded) {
@@ -207,8 +285,8 @@ class index extends Component {
     }
     componentDidMount() {
         const tBody = document.querySelector(".ant-table-body")
-        console.log("表格", tBody);
-        tBody.onscroll = this.onScrollEvent
+        // console.log("表格", tBody);
+        // tBody.onscroll = this.onScrollEvent
 
     }
 }

@@ -1,0 +1,40 @@
+.box {
+    overflow: auto;
+    height: 100%;
+    padding: 24px;
+    background: rgb(77, 76, 75);
+    width: 100%;
+    color: #fff;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: flex-start;
+
+    .imgbox {
+        width: 400px;
+        height: 200px;
+        background-color: #963;
+        // border: 4px solid #963;
+        border: 4px solid var(--imgurl);
+        margin: 2px;
+        overflow: auto;
+
+        .img {
+            width: 100%;
+            height: 100%;
+            // border: ;
+
+        }
+    }
+
+    .globalcss {
+        padding: 36px;
+
+        :global {
+            .ant-btn {
+                background-color: #369;
+                color: #fff;
+            }
+        }
+    }
+}

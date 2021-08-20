@@ -14,13 +14,16 @@ export default function Option() {
         legend: {
             data: ["活期10固收80权益10", "期5固收65权益30", "组合收益率"],
             orient: "vertical",
-            left: 0,
-            top: 100,
-
+            // left: 0,
+            // top: 60,
+            x: "left",
+            y: "center",
+            itemGap: 20, //每行之间间隔
+            align: "left",
             formatter: function (params) {
                 var newParamsName = ""; // 最终拼接成的字符串
                 var paramsNameNumber = params.length; // 实际标签的个数
-                var provideNumber = 5; // 每行能显示的字的个数
+                var provideNumber = 4; // 每行能显示的字的个数
                 var rowNumber = Math.ceil(paramsNameNumber / provideNumber); // 换行的话，需要显示几行，向上取整
 
                 // 条件等同于rowNumber>1
@@ -51,6 +54,9 @@ export default function Option() {
                 width: 36,
                 height: 100,
                 overflow: 'break', //超出换行
+                textStyle: {
+                    padding: [15, 0, 0, 0],
+                }
             }
 
         },

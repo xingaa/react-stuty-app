@@ -54,12 +54,30 @@
             tr {
                 td {
                     padding: 11px;
+                    // white-space: nowrap;
+                    // text-overflow: ellipsis;
+                    // overflow: hidden;
                 }
             }
         }
 
         .ant-table-cell-fix-left {
-            background: rgb(187, 235, 14) !important;
+            background: #eb8b99 !important;
         }
     }
+}
+
+.tabletd {
+    width: 100%;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.scaling {
+    background: #eb8b99;
+    color: #fff;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
 }

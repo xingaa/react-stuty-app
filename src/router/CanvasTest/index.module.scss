@@ -10,15 +10,36 @@
 
     .mycanvas {
         border: 1px solid #000;
-        position: absolute;
-        left: 0;
-        right: 0;
-        top: 0;
-        bottom: 0;
-        margin: auto;
+        margin: 0 auto;
         border-radius: 50%;
         // height: 400px;
         // width: 600px;
         background: rgb(141, 99, 99);
     }
+
+    .scapebox {
+        margin: 10px auto;
+        background: rgb(82, 83, 28);
+        padding: 12px;
+        width: 200px;
+        position: relative;
+
+        .scape {
+            text-align: center;
+            height: 80px;
+            line-height: 80px;
+            background: cornsilk;
+            color: crimson;
+            font-weight: 700;
+        }
+
+        .scapeCanvas {
+            position: absolute;
+            // width: 200px;
+            // height: 104px;
+            top: 12px;
+            left: 12px;
+        }
+    }
+
 }
