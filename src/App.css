@@ -2,13 +2,12 @@
   text-align: center;
   width: calc(100vw - 24px);
   height: calc(100vh - 24px);
-  /* background-color: #fff; */
   background-color: #fff;
   margin: 12px auto;
   overflow: auto;
   border-radius: 12px;
   color: #333;
-  border: 2px solid salmon;
+  border: 2px solid #516468;
   overflow: hidden;
   position: relative;
 }

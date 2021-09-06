@@ -21,7 +21,7 @@ class index extends Component {
         },
         extendObj: {},
         change: 1,
-        numOfThousand: 123456789.123,
+        numOfThousand: 123456789.123456789,
         base64Str: "hello world"
     }
 
@@ -31,7 +31,6 @@ class index extends Component {
         strOld = JSON.stringify(oldObj)
         let strOld2 = JSON.stringify(extendObj)
         if (this.state.change === 1) {
-
             newObj = oldObj
             deepObj = JSON.parse(strOld)
         }
@@ -222,6 +221,8 @@ class index extends Component {
             { res_id: 147, res_type: 15 },
         ]
         console.log(this.mergeId(arr));
+        const obj = { name: "zhangsan" }
+        console.log("zhangsan", obj);
     }
 
 

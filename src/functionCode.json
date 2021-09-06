@@ -65,9 +65,9 @@
         "name":"Cssuse"
     },
     {
-        "hashUrl":"/htmlgame",
-        "componentPath":"Htmlgame",
-        "name":"找到小星星游戏"
+        "hashUrl":"/lolding",
+        "componentPath":"Lolding",
+        "name":"剑气加载"
     },
     {
         "hashUrl":"/waterMark",
@@ -78,5 +78,15 @@
         "hashUrl":"/media",
         "componentPath":"Media",
         "name":"媒体查询"
+    },
+    {
+        "hashUrl":"/imghtml",
+        "componentPath":"Imghtml",
+        "name":"html页面转图片"
+    },
+    {
+        "hashUrl":"/growthgame",
+        "componentPath":"Growthgame",
+        "name":"砍怪升级成长游戏"
     }
 ]

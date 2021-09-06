@@ -33,7 +33,6 @@ class index extends Component {
         );
     }
     componentDidMount() {
-
     }
 }
 

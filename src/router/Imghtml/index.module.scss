@@ -1,0 +1,42 @@
+.box {
+    // position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    // background: linear-gradient(#e4e0ba, #f7d9aa);
+    text-align: left;
+    padding: 24px;
+
+    .htmlBox {
+        background: url("../../assets/images/image6.jpg") repeat-y 0 0;
+        background-size: 100% auto;
+        margin: 4px;
+    }
+
+    li {
+        list-style: none;
+    }
+
+    .shaddowBox {
+        background-color: rgba(0, 0, 0, 0.6);
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: auto;
+
+        .closeBtn {
+            position: fixed;
+            top: 24px;
+            right: 12px;
+            font-size: 64px;
+            font-weight: 100;
+            color: #fff;
+            cursor: pointer;
+        }
+    }
+}
