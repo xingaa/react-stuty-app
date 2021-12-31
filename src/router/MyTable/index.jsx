@@ -181,6 +181,7 @@ class index extends Component {
                 // render: text => <span className={styles.tabletd} title={text}>{text}</span>
             },
         ],
+        dataList: []
     }
     components = {
         header: {
@@ -211,7 +212,7 @@ class index extends Component {
                 onResize: this.handleResize(index)
             })
         }))
-        const { width } = this.state
+        const { width, dataList } = this.state
         return (
             <div className={styles.box + " " + scroll.barStyle}>
                 <Resizable height={this.state.height} width={this.state.width} onResize={this.onResize}>
@@ -221,7 +222,7 @@ class index extends Component {
                 </Resizable>
                 <Button onClick={this.toExcel}>导出Excel</Button>
                 <Table
-                    dataSource={data}
+                    dataSource={dataList}
                     columns={columns}
                     components={this.components}
                     expandIcon={this.expandRow}
@@ -284,10 +285,18 @@ class index extends Component {
         };
     }
     componentDidMount() {
-        const tBody = document.querySelector(".ant-table-body")
-        // console.log("表格", tBody);
-        // tBody.onscroll = this.onScrollEvent
-
+        let data = []
+        for (var i = 0; i < 16000; i++) {
+            data.push({
+                key: i,
+                name: 'Joe Black',
+                age: 32,
+                address: `Sidney No.${i + 1} Lake Park`,
+            })
+        }
+        this.setState({
+            dataList: data,
+        })
     }
 }
 

@@ -69,3 +69,7 @@
   left: 0;
   width: 100%;
 }
+
+.ant-tooltip-inner {
+  white-space: pre-line !important;
+}

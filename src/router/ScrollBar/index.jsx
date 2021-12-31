@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 import { Table, Switch, Space, Icon, Card, Button } from 'antd';
+import axios from "axios"
 import {
     CaretRightOutlined,
     CaretDownOutlined
 } from '@ant-design/icons';
 import styles from "./index.module.scss";
+import { assertExpressionStatement } from '@babel/types';
 
 class index extends Component {
     state = {
@@ -47,7 +49,7 @@ class index extends Component {
     sum = function () {
         console.log("arguments", arguments);
         if (arguments.length === 0) {
-            alert("请先传参")
+            console.log("请先传参")
             return
         }
         let sum = 0
@@ -63,7 +65,7 @@ class index extends Component {
         return sum
     }
 
-    componentDidMount() {
+    async componentDidMount() {
         this.delLastWord()
         console.log(this.sum(2, null, 3));
         const datalist = []
@@ -72,6 +74,89 @@ class index extends Component {
         if (JSON.stringify(arr) !== "[]") {
             console.log("该arr不是空数组");
         }
+
+        function ClassA(arg) { this.arg = arg; }
+        ClassA.prototype.x = 20;
+        function ClassB(x) { this.x = x; }
+        ClassB.prototype = new ClassA(30);
+        var a = new ClassA('xxxxx '), b = new ClassB(40);
+        console.log(a instanceof Object);//true
+        console.log(a instanceof ClassA);//true
+        console.log(b instanceof Object);//true
+        console.log(b instanceof ClassA);//true
+        a.x = 30;
+        console.log(a.x); //30
+        delete a.x
+        console.log(a.x);//20
+        console.log(b.x);//40
+        delete b.x;
+        console.log(b.x);//20
+
+        const weburl = "https://www.qq.com/query?id=news&name=search&ref=website"
+        function handleWebUrl(url) {
+            var paramsStr = url.split("?")[1]
+            var paramsArr = paramsStr.split("&")
+            const objUrl = {}
+            paramsArr && paramsArr.map(item => {
+                var itemArr = item.split("=")
+                objUrl[itemArr[0]] = itemArr[1]
+            })
+            return objUrl
+        }
+        console.log("objUrl", handleWebUrl(weburl));
+
+        // }, 1000)
+
+
+        const numLine = "1>2>3>4>5>6"
+        function reverse(params, k) {
+            const numLineArr = params.split(">")
+            const length = numLineArr.length
+            if (k > length || k <= 0) return numLineArr.join(">")
+            const reverseArr = []
+            for (var i = 0; i < (length / k) - 1; i++) {
+                const newArr = numLineArr.slice(i * k, (i + 1) * k).reverse()
+                reverseArr.push(...newArr)
+            }
+            if ((length % k) !== 0) {
+                const newArr = numLineArr.slice(length - length % k, length)
+                reverseArr.push(...newArr)
+            } else {
+                const newArr = numLineArr.slice(length - k, length).reverse()
+                reverseArr.push(...newArr)
+            }
+
+            return reverseArr.join(">")
+        }
+        console.log("reverse", reverse(numLine, 6));
+
+        let abc = [1, 2, 3, 4, 5]
+        console.log("abc", abc.reduce((sum, item) => sum + item));
+
+        // for (let i = 0; i < 20; i++) {
+        //     await this.questFn(i)
+        // }
+        console.log("{...{}}", { ...{} });
+
+    }
+    questFn = async (i) => {
+        let arr = [i]
+        let promise = new Promise((resolve, reject) => {
+            for (let j = i * 10; j < (i * 10 + 10); j++) {
+                // axios.get("https://test.com/get", { params: { id: j } })
+                setTimeout(() => {
+                    console.log("arr,j", arr, "j");
+                }, 0)
+            }
+            setTimeout(() => {
+                resolve("done!")
+            }, 1000)
+        })
+        let result = await promise
+
+
+
+
     }
 
 

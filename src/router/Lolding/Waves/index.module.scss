@@ -1,0 +1,56 @@
+.box {
+    background-color: #5291e0;
+    position: relative;
+    overflow: hidden;
+
+    .contents {
+        z-index: 10;
+        position: relative;
+        padding: 4px;
+    }
+
+    &::after,
+    &::before {
+        content: "";
+        background-color: #fff;
+        display: block;
+        width: 300%;
+        height: 300%;
+        position: absolute;
+        right: -100%;
+        border-radius: 47%;
+        bottom: 12px;
+        opacity: 1;
+        animation: waverun 5s infinite;
+        z-index: 5;
+    }
+
+    &::after {
+        opacity: 0.5;
+        bottom: 8px;
+        border-radius: 45%;
+        animation: waverun 4s infinite;
+    }
+
+    @keyframes waverun {
+        0% {
+            transform: rotate(0deg);
+        }
+
+        25% {
+            transform: rotate(20deg);
+        }
+
+        50% {
+            transform: rotate(0deg);
+        }
+
+        75% {
+            transform: rotate(-20deg);
+        }
+
+        100% {
+            transform: rotate(0deg);
+        }
+    }
+}

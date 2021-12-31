@@ -14,7 +14,12 @@ export default function Option() {
             type: 'value',
             name: '温度',
             min: (value) => {
-                return value.min
+                // let num=Math.floor(value.min) 
+                let mul= 10**(value.min.toString().length-2)
+                // return (num/mul)*mul
+                console.log('mul',mul);
+                console.log('Math.floor(value.min/mul) * mul',Math.floor(value.min/mul));
+                return Math.floor(value.min/mul) * mul
             },
             max: (value) => {
                 return value.max

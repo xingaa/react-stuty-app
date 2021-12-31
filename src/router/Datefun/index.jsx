@@ -69,6 +69,9 @@ class index extends Component {
     getSunday = () => {
         const time = new Date()
         let today = time.getDay()
+        if (today === 0) {
+            today = 7
+        }
         return this.getToday(0 - today, "-")
     }
     // 获取上月末
@@ -111,6 +114,10 @@ class index extends Component {
         let year = time.getFullYear()
         return year - 1 + str + "12" + str + "31"
     }
+
+    // 秒数格式化
+
+
     componentDidMount() {
         this.setState({
             today: this.getToday(0, "-"),
@@ -120,6 +127,30 @@ class index extends Component {
             EOFH: this.getEOFH("-"),
             EOLY: this.getEOLY("-"),
         })
+
+        function diyFunc(obj) {
+            if (Object.prototype.toString.call(obj) !== "[object Object]") return
+            const a = { ...obj }
+        }
+
+        // ES5方法
+        let arr1 = [1, 2, 3, 3, 4, 4, 5, 5, 6, 1, 9, 3, 25, 4]
+        function setArr(arr) {
+            if (!Array.isArray(arr)) return
+            arr = arr.sort()
+            var arrry = [arr[0]];
+            for (var i = 1; i < arr.length; i++) {
+                if (arr[i] !== arr[i - 1]) {
+                    arrry.push(arr[i]);
+                }
+            }
+            return arrry;
+        }
+        console.log("setArr(arr1)", setArr(arr1));
+        // ES6方法
+        const newArr1 = new Set(arr1)
+        console.log("new Set(arr1)", newArr1);
+
 
     }
 }

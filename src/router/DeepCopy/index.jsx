@@ -1,11 +1,8 @@
 import React, { Component } from 'react';
-import { Table, Switch, Space, Icon, Card } from 'antd';
-import {
-    CaretRightOutlined,
-    CaretDownOutlined
-} from '@ant-design/icons';
-import { encode, decode, encodeURI } from 'js-base64';
+import { Card, Tooltip, Button } from 'antd';
+import { encodeURI } from 'js-base64';
 import styles from "./index.module.scss";
+import { throttle } from '../../utils/helper'
 
 let newObj = null
 let deepObj = null
@@ -22,12 +19,15 @@ class index extends Component {
         extendObj: {},
         change: 1,
         numOfThousand: 123456789.123456789,
-        base64Str: "hello world"
+        base64Str: "hello world",
+        bigNum: ['915546001781252', '19933704435929343'],
+        strlong: "巴拉不 \n 了不了不了不了不了不了不了不了不了不了不了不了",
+        tooltipLong: ""
     }
 
     render() {
 
-        const { oldObj, extendObj, numOfThousand, base64Str, base64word } = this.state
+        const { oldObj, extendObj, numOfThousand, base64Str, base64word, bigNum } = this.state
         strOld = JSON.stringify(oldObj)
         let strOld2 = JSON.stringify(extendObj)
         if (this.state.change === 1) {
@@ -37,52 +37,68 @@ class index extends Component {
         strNew = JSON.stringify(newObj)
         strDeep = JSON.stringify(deepObj)
         return (
-            <div>
+            <div className={styles.box}>
+                <Card
+                    title="原对象"
+                    extra={<span style={{ cursor: "pointer", color: "#23a9f2" }} onClick={this.handleclick.bind(this, "oldObj")} >改变</span>}
+                    style={{ width: 300 }}
+                // loading={true}
+                >
+                    {strOld}
 
-                <div className={styles.box}>
-                    <Card
-                        title="原对象"
-                        extra={<span style={{ cursor: "pointer", color: "#23a9f2" }} onClick={this.handleclick.bind(this, "oldObj")} >改变</span>}
-                        style={{ width: 300 }}
-                    // loading={true}
-                    >
-                        {strOld}
-
-                    </Card>
-                    <Card
-                        title="直接赋值对象"
-                        extra={<span style={{ cursor: "pointer", color: "#23a9f2" }} onClick={this.handleclick.bind(this, "newObj")}>改变</span>}
-                        style={{ width: 300 }}>
-                        {strNew}
-                    </Card>
-                    <Card
-                        title="深拷贝对象"
-                        extra={<span style={{ cursor: "pointer", color: "#23a9f2" }} onClick={this.handleclick.bind(this, "deepObj")}>改变</span>}
-                        style={{ width: 300 }}>
-                        {strDeep}
-                    </Card>
-
-                </div>
-                <div className={styles.box}>
-                    <Card
-                        title="展开运算符"
-                        extra={<span style={{ cursor: "pointer", color: "#23a9f2" }} onClick={this.handleclick.bind(this, "extend")}>展开对象</span>}
-                        style={{ width: 300 }}>
-                        {strOld2}
-                    </Card>
-                    <Card
-                        title="千分位数值"
-                        extra={<span style={{ cursor: "pointer", color: "#23a9f2" }} onClick={this.handleclick.bind(this, "thousand")}>改变</span>}
-                        style={{ width: 300 }}>
-                        {numOfThousand}
-                    </Card>
-                    <Card
-                        title={base64Str}
-                        extra={<span style={{ cursor: "pointer", color: "#23a9f2" }} onClick={this.handleclick.bind(this, "base64")}>base64</span>}
-                        style={{ width: 300 }}>
-                        {base64word}
-                    </Card>
-                </div>
+                </Card>
+                <Card
+                    title="直接赋值对象"
+                    extra={<span style={{ cursor: "pointer", color: "#23a9f2" }} onClick={this.handleclick.bind(this, "newObj")}>改变</span>}
+                    style={{ width: 300 }}>
+                    {strNew}
+                </Card>
+                <Card
+                    title="深拷贝对象"
+                    extra={<span style={{ cursor: "pointer", color: "#23a9f2" }} onClick={this.handleclick.bind(this, "deepObj")}>改变</span>}
+                    style={{ width: 300 }}>
+                    {strDeep}
+                </Card>
+                <Card
+                    title="展开运算符"
+                    extra={<span style={{ cursor: "pointer", color: "#23a9f2" }} onClick={this.handleclick.bind(this, "extend")}>展开对象</span>}
+                    style={{ width: 300 }}>
+                    {strOld2}
+                </Card>
+                <Card
+                    title="千分位数值"
+                    extra={<span style={{ cursor: "pointer", color: "#23a9f2" }} onClick={this.handleclick.bind(this, "thousand")}>改变</span>}
+                    style={{ width: 300 }}>
+                    {numOfThousand}
+                </Card>
+                <Card
+                    title={base64Str}
+                    extra={<span style={{ cursor: "pointer", color: "#23a9f2" }} onClick={this.handleclick.bind(this, "base64")}>base64</span>}
+                    style={{ width: 300 }}>
+                    {base64word}
+                </Card>
+                <Card
+                    title={"长度超17位失真加法解决"}
+                    style={{ width: 300 }}>
+                    {bigNum[0] + "+" + bigNum[1] + "=" + this.add('915546001781252', '19933704435929343')}
+                </Card>
+                <Card
+                    title={"tooltip控制换行"}
+                    style={{ width: 300 }}>
+                    <Tooltip title={`巴拉不了
+                    不了不了不了不了不了了不
+                    了不了不了不了不了\n不了不了不了不了不了不了`}>
+                        <div className={styles.huanhang}>
+                            {this.state.strlong}
+                        </div>
+                    </Tooltip>
+                </Card>
+                <Card
+                    title={"tooltip控制换行"}
+                    style={{ width: 300 }}>
+                    <Button onClick={throttle(this.throttle.bind(this, "节流了", '成功了'), 5000)}>节流</Button>
+                </Card>
+                <br></br>
             </div>
         );
     }
@@ -149,7 +165,7 @@ class index extends Component {
                 sameSty.push(item.name)
             }
         })
-        console.log("newArr", newArr);
+        // console.log("newArr", newArr);
     }
     paramsTransGET(obj) {
         if (!obj || typeof obj !== "object") return ''
@@ -183,7 +199,7 @@ class index extends Component {
     componentDidMount() {
         const { oldObj } = this.state
         const url = `https://restapi.amap.com/v3/direction/driving`;
-        console.log(url + this.paramsTransGET(oldObj));
+        // console.log(url + this.paramsTransGET(oldObj));
         this.seTArr()
 
 
@@ -204,9 +220,9 @@ class index extends Component {
 
         const a = 123.123450000
         const b = a + ""
-        console.log("a", a);//123.12345
-        console.log("b", b);//"123.12345"
-        console.log(getLength(a));//5
+        // console.log("a", a);//123.12345
+        // console.log("b", b);//"123.12345"
+        // console.log(getLength(a));//5
 
         let arr = [
             { res_id: 12345812, res_type: 5 },
@@ -220,14 +236,42 @@ class index extends Component {
             { res_id: 169, res_type: 5 },
             { res_id: 147, res_type: 15 },
         ]
-        console.log(this.mergeId(arr));
         const obj = { name: "zhangsan" }
-        console.log("zhangsan", obj);
+        let cont = true
+        let num2 = 1
+        while (cont) {
+            if (num2 == 5) {
+                cont = false
+            }
+            num2 += 1
+            // console.log("num2", num2);
+        }
+        let arr3 = [1, 2, 3, 4, 5]
+        arr3.splice(1)
+        // console.log("splice", arr3)
+        // console.log("strlong", this.state.strlong.indexOf('\n'));
+        let strrr = "heaabcjjjabc"
+        console.log("replace", strrr.replace("abc", "大"));
+    }
+    // 超大正整数加法计算，解决长度超过17出现的精度问题
+    add = (a, b) => {
+        a = (a + '').split('');
+        b = (b + '').split('');
+        var jinwei = 0, result = '';
+        // 这里一定不要忘了加上“ || jinwei”，否则最后面一个进位会被漏掉
+        while (a.length || b.length || jinwei) {
+            var temp = parseInt(a.pop() || 0) + parseInt(b.pop() || 0) + jinwei;
+            result = temp % 10 + result;
+            jinwei = Math.floor(temp / 10);
+        }
+        return result;
+    }
+    // 节流
+    throttle = (a, b) => {
+        console.log(a, b);
     }
 
-
 }
-
 export default index;
 
 

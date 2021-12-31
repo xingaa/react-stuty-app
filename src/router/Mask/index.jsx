@@ -13,22 +13,20 @@ class index extends Component {
     }
 
     render() {
-
-
         return (
-
             <div className={styles.box}>
                 <div className={styles.mask}></div>
                 <div className={styles.maskouter}></div>
 
-                <div className={styles.clickbox}>
+                {/* <div className={styles.clickbox}>
 
                     <div
                         className={styles.click}
                         onClick={this.click}
                         onMouseOver={this.mouseOver}
                     >{this.state.text}</div>
-                </div>
+                </div> */}
+                <div className={styles.halfImg}></div>
             </div>
         );
     }

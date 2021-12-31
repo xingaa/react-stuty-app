@@ -1,0 +1,40 @@
+{
+	"folders": [
+		{
+			"path": "..\\.."
+		},
+		{
+			"path": "..\\..\\..\\..\\githubPro\\eladmin-web"
+		},
+		{
+			"path": "..\\..\\..\\..\\vue\\Quasar-Demo\\Quasar-Demo"
+		},
+		{
+			"path": "..\\..\\..\\开源项目\\blog-react"
+		},
+		{
+			"path": "..\\..\\..\\test-html"
+		},
+		{
+			"path": "..\\..\\..\\开源项目\\official_website"
+		},
+		{
+			"path": "..\\..\\..\\..\\githubPro\\huahua-xing-a-master"
+		},
+		{
+			"path": "..\\..\\..\\my-ts-app"
+		},
+		{
+			"path": "..\\..\\..\\开源项目\\devices.css"
+		},
+		{
+			"path": "..\\..\\..\\..\\app_Api\\NeteaseCloudMusicApi-master"
+		},
+		{
+			"path": "..\\..\\..\\..\\app_Api\\硅谷音乐_server"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "devices.css"
+	}
+}

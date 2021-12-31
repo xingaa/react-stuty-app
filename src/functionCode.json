@@ -88,5 +88,15 @@
         "hashUrl":"/growthgame",
         "componentPath":"Growthgame",
         "name":"砍怪升级成长游戏"
+    },
+    {
+        "hashUrl":"/antvg6",
+        "componentPath":"AntVG6",
+        "name":"图可视化引擎"
+    },
+    {
+        "hashUrl":"/mathjax",
+        "componentPath":"Mathjax",
+        "name":"mathjax使用"
     }
 ]
