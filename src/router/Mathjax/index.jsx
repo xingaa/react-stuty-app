@@ -7,24 +7,25 @@ class index extends Component {
     }
 
     render() {
-
-
         return (
             <div className={styles.box}>
                 mathjax
-                $${'\\sum'}$$
+                $${'\\sum_{t=0}^t+S_{P_R}'}$$
             </div>
         );
     }
-
     async componentDidMount() {
         // 重新排版公式
         if (window.MathJax) {
             window.MathJax.typesetPromise && window.MathJax.typesetPromise();
         }
     }
-
-
+    componentDidUpdate() {
+        // 重新排版公式
+        if (window.MathJax) {
+            window.MathJax.typesetPromise && window.MathJax.typesetPromise();
+        }
+    }
 }
 
 export default index;
