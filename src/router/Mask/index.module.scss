@@ -60,4 +60,25 @@
         background-image: url(../../assets/images/img1.png);
         box-shadow: 0px 10px 56px 5px;
     }
+    .moveBox{
+        width: 300px;
+        height: 240px;
+        margin: 20px auto;
+        overflow: hidden;
+        border: 2px #ebebeb solid;
+        position: relative;
+        .moveItem{
+            width: 600px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            // height: 400px;
+            line-height: 36px;
+            padding: 12px;
+            background: linear-gradient(to top right, #04f324, #f7f702);
+            img{
+                width:600px;
+            }
+        }
+    }
 }

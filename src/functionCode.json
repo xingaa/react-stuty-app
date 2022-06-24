@@ -98,5 +98,10 @@
         "hashUrl":"/mathjax",
         "componentPath":"Mathjax",
         "name":"mathjax使用"
+    },
+    {
+        "hashUrl":"/wangeditor",
+        "componentPath":"Wangeditor",
+        "name":"富文本编辑器"
     }
 ]
