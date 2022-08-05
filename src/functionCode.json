@@ -1,107 +1,112 @@
 [
     {
-        "hashUrl":"/home",
-        "componentPath":"Home",
-        "name":"主页"
+        "hashUrl": "/home",
+        "componentPath": "Home",
+        "name": "主页"
     },
     {
-        "hashUrl":"/myForm",
-        "componentPath":"MyForm",
-        "name":"Form使用"
+        "hashUrl": "/myForm",
+        "componentPath": "MyForm",
+        "name": "Form使用"
     },
     {
-        "hashUrl":"/fireworks",
-        "componentPath":"Fireworks",
-        "name":"烟花效果"
+        "hashUrl": "/fireworks",
+        "componentPath": "Fireworks",
+        "name": "烟花效果"
     },
     {
-        "hashUrl":"/myTable",
-        "componentPath":"MyTable",
-        "name":"Table使用"
+        "hashUrl": "/myTable",
+        "componentPath": "MyTable",
+        "name": "Table使用"
     },
     {
-        "hashUrl":"/deepCopy",
-        "componentPath":"DeepCopy",
-        "name":"JS数据处理"
+        "hashUrl": "/deepCopy",
+        "componentPath": "DeepCopy",
+        "name": "JS数据处理"
     },
     {
-        "hashUrl":"/scrollBar",
-        "componentPath":"ScrollBar",
-        "name":"滚动条样式"
+        "hashUrl": "/scrollBar",
+        "componentPath": "ScrollBar",
+        "name": "滚动条样式"
     },
     {
-        "hashUrl":"/echarts",
-        "componentPath":"Echarts",
-        "name":"Echarts使用"
+        "hashUrl": "/echarts",
+        "componentPath": "Echarts",
+        "name": "Echarts使用"
     },
     {
-        "hashUrl":"/lazyLoad",
-        "componentPath":"LazyLoad",
-        "name":"图片懒加载"
+        "hashUrl": "/lazyLoad",
+        "componentPath": "LazyLoad",
+        "name": "图片懒加载"
     },
     {
-        "hashUrl":"/mask",
-        "componentPath":"Mask",
-        "name":"图形遮罩层"
+        "hashUrl": "/mask",
+        "componentPath": "Mask",
+        "name": "图形遮罩层"
     },
     {
-        "hashUrl":"/datefun",
-        "componentPath":"Datefun",
-        "name":"日期函数"
+        "hashUrl": "/datefun",
+        "componentPath": "Datefun",
+        "name": "日期函数"
     },
     {
-        "hashUrl":"/epidemicMap",
-        "componentPath":"EpidemicMap",
-        "name":"疫情地图"
+        "hashUrl": "/epidemicMap",
+        "componentPath": "EpidemicMap",
+        "name": "疫情地图"
     },
     {
-        "hashUrl":"/canvasTest",
-        "componentPath":"CanvasTest",
-        "name":"Canvas"
+        "hashUrl": "/canvasTest",
+        "componentPath": "CanvasTest",
+        "name": "Canvas"
     },
     {
-        "hashUrl":"/cssuse",
-        "componentPath":"Cssuse",
-        "name":"Cssuse"
+        "hashUrl": "/cssuse",
+        "componentPath": "Cssuse",
+        "name": "Cssuse"
     },
     {
-        "hashUrl":"/lolding",
-        "componentPath":"Lolding",
-        "name":"剑气加载"
+        "hashUrl": "/lolding",
+        "componentPath": "Lolding",
+        "name": "剑气加载"
     },
     {
-        "hashUrl":"/waterMark",
-        "componentPath":"WaterMark",
-        "name":"水印"
+        "hashUrl": "/waterMark",
+        "componentPath": "WaterMark",
+        "name": "水印"
     },
     {
-        "hashUrl":"/media",
-        "componentPath":"Media",
-        "name":"媒体查询"
+        "hashUrl": "/media",
+        "componentPath": "Media",
+        "name": "媒体查询"
     },
     {
-        "hashUrl":"/imghtml",
-        "componentPath":"Imghtml",
-        "name":"html页面转图片"
+        "hashUrl": "/imghtml",
+        "componentPath": "Imghtml",
+        "name": "html页面转图片"
     },
     {
-        "hashUrl":"/growthgame",
-        "componentPath":"Growthgame",
-        "name":"砍怪升级成长游戏"
+        "hashUrl": "/growthgame",
+        "componentPath": "Growthgame",
+        "name": "砍怪升级成长游戏"
     },
     {
-        "hashUrl":"/antvg6",
-        "componentPath":"AntVG6",
-        "name":"图可视化引擎"
+        "hashUrl": "/antvg6",
+        "componentPath": "AntVG6",
+        "name": "图可视化引擎"
     },
     {
-        "hashUrl":"/mathjax",
-        "componentPath":"Mathjax",
-        "name":"mathjax使用"
+        "hashUrl": "/mathjax",
+        "componentPath": "Mathjax",
+        "name": "mathjax使用"
     },
     {
-        "hashUrl":"/wangeditor",
-        "componentPath":"Wangeditor",
-        "name":"富文本编辑器"
+        "hashUrl": "/wangeditor",
+        "componentPath": "Wangeditor",
+        "name": "富文本编辑器"
+    },
+    {
+        "hashUrl": "/bingImg",
+        "componentPath": "Bing",
+        "name": "bing壁纸"
     }
 ]

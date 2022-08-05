@@ -48,6 +48,8 @@ class index extends Component {
         })
     }
 
+    
+
     componentDidMount() {
         const ele = document.getElementById("waterMarkWrap")
         const img = `<img src="${logo}" className="App-logo" alt="logo" style="height:100%"/>`

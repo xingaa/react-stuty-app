@@ -23,10 +23,15 @@ class index extends Component {
                 <div className={styles.imgbox + " " + styles.globalcss} >跳过className处理，直接找class
                     <Button>样式展示</Button>
                 </div>
-                <iframe className={styles.imgbox} src="http://49.234.105.65/"></iframe>
+                {/* <iframe className={styles.imgbox} src="http://49.234.105.65/"></iframe> */}
                 <div className={styles.imgbox} >
 
-                    <iframe src="https://www.lovestu.com/api/project/cnmapyinqing/obj.php?maph=400" scrolling="auto" height="480" frameBorder="no" border="0" width="100%"></iframe>
+                    {/* <iframe src="https://www.lovestu.com/api/project/cnmapyinqing/obj.php?maph=400" scrolling="auto" height="480" frameBorder="no" border="0" width="100%"></iframe> */}
+                </div>
+                <div className={styles.imgbox + ' ' + styles.sty3d} >
+                    <div className={styles.mask1}>mask1</div>
+                    <div className={styles.mask2}>mask2</div>
+
                 </div>
             </div>
 
