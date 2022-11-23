@@ -19,6 +19,7 @@ export default class Initpage extends Component {
             <p>
               {/* Edit <code>src/App.js</code> and save to reload. */}
               This is my project created on 2021.01.20
+              add a new remote repository on 2022.11.23
             </p>
 
             <Link
