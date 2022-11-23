@@ -25,6 +25,7 @@ jobs:
         key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
         restore-keys: | 
           ${{ runner.os }}-yarn-
+    - run: npm config set registry https://registry.npmmirror.com
     - run: npm install && npm run build
     # 新增 deploy
     - name: deploy
