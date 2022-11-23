@@ -1,8 +1,8 @@
 .box {
     display: flex;
     align-items: center;
-    flex-flow: column;
-    background-color: #f1f1f1;
+    flex-flow: wrap;
+    background-color: #eef0f4;
     height: 100%;
     justify-content: space-around;
 }

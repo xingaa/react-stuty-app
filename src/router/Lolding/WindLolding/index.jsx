@@ -7,7 +7,7 @@ class index extends Component {
   render() {
     const { style = {} } = this.props
     return (
-      <div className={styles.sword} style={style}>
+      <div className={styles.sword} style={{'--clr':'#00aeec',...style}}>
         <span />
         <span />
         <span />

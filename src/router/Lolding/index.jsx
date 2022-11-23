@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import styles from "./index.module.scss";
 import WindLolding from "./WindLolding"
 import Waves from "./Waves"
+import GlobCard from "./GlobCard"
+import UserCard from "./UserCard"
 class index extends Component {
   state = {
   }
@@ -11,7 +13,9 @@ class index extends Component {
     return (
       <div className={styles.box}>
         <WindLolding></WindLolding>
-        <Waves>你好</Waves>
+        <GlobCard>水珠卡片</GlobCard>
+        <UserCard></UserCard>
+        <Waves></Waves>
       </div>
     )
   }
