@@ -13,7 +13,7 @@ jobs:
     - name: actions/setup-node@v2
       uses: actions/setup-node@v2   
       with:
-        node: 14.17
+        node: 12
     # 配置依赖缓存
     - name: yarn cache
       id: yarn-cahce-dir-path
@@ -29,7 +29,7 @@ jobs:
     # - run: yarn config set sass_binary_site http://cdn.npmmirror.com/dist/node-sass -g
     # - run: yarn install && yarn build
     # - run: npm config set registry https://registry.npmmirror.com
-    - run: npm config set sass_binary_site https://npm.taobao.org/mirrors/node-sass/
+    # - run: npm config set sass_binary_site https://npm.taobao.org/mirrors/node-sass/
     - run: npm install && npm run build
     # 新增 deploy
     - name: deploy
