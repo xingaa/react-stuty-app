@@ -26,7 +26,7 @@ jobs:
         restore-keys: | 
           ${{ runner.os }}-yarn-
     # - run: npm config set registry https://registry.npmmirror.com
-    - run: npm install && npm run build
+    - run: yarn install && yarn build
     # 新增 deploy
     - name: deploy
       uses: JamesIves/github-pages-deploy-action@v4.2.3
