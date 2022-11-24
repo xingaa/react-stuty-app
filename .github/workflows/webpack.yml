@@ -25,9 +25,11 @@ jobs:
         key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
         restore-keys: | 
           ${{ runner.os }}-yarn-
-    # - run: npm config set registry https://registry.npmmirror.com
     # - run: yarn config set registry https://registry.npmmirror.com -g
     # - run: yarn config set sass_binary_site http://cdn.npmmirror.com/dist/node-sass -g
+    # - run: yarn install && yarn build
+    # - run: npm config set registry https://registry.npmmirror.com
+    - run: npm config set sass_binary_site https://npm.taobao.org/mirrors/node-sass/
     - run: npm install && npm run build
     # 新增 deploy
     - name: deploy
